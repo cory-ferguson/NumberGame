@@ -9,28 +9,37 @@ creat char[] for name
 ask the user for the name
 greet user with name
 
-int = rand();
-char name[20];
-keepGoing = 0;
-int turns = 0;
+main():
+    int correctNum will be  rand();
+    int guess starts at -999
+    char name[20];
+    int keepGoing starts True;
+    int turns starts at  0;
 
-while keepGoing is true:
-    turns++;
-    print("Guess a number: );
-    scan for user input
-    if guess < correct:
-        print("Too low.");
-    if guess > correct:
-        print("Too high.");
-    if guess == correct:
-        print("Correct!");
-        keepGoing = 1;
+    generate a random between 1 and 100 put in correct 
+    ask for user's name
+    store it in name
+    
+    greet the user with name
+    
+    while keepGoing is true:
+        increment turns
+        ask user for a number;
+        put it in guess 
 
-if turns > 7:
-    print("Good performance!");
-if turns < 7:
-    print("Poor performance.");
-if turns == 7:
-    print("Average performance);
+        if guess < correct:
+            print("Too low.");
+        else if guess > correct:
+            print("Too high.");
+        else:
+            print("Correct!");
+            set keepGoing to false
+
+    if turns > 7:
+        print("Great!");
+    if turns < 7:
+        print("You could do better.");
+    if turns == 7:
+        print("Pretty good");
 
 

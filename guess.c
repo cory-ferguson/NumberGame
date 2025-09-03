@@ -1,50 +1,51 @@
 /*
- Make a random number game where the user guesses the number
- Use a random nummber generator 
- Ask the user for a number
- If user guesses too low say "Too Low"
- If the user guesses too high say "Too high"
- If the user guesses the correct number say "Correct!"
- If user gets it in 6 or less tries tell them "Great job!"
- 7 tries tell them "Average Performance"
- If user gets it in more than 8 tries tell them "Poor performance" 
-
+ Psudocode is on a different file (psudo.md)
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#define TRUE -1
-#define FALSE 0
-
+#include <stdbool.h>
 
 int main() {
-	char name[20];
-	printf("What is your name? \n");
-	scanf("%s", name);
-	printf("Hi, %s! \n" name);
-
-	printf("Guess a number \n");
+	//variables
+	char userName[20];
 	int turns = 0;
-	srand(time(NULL));
-	int correct = rand() % 100;
-	int keepGoing = TRUE;
-	int guess;
-	printf("correct: %d", correct);
+	int guess = -999;
+	srand(time(NULL)); //seeds the random number gen so it's actually random
+	int correct = (rand() % 100) + 1;
+	int keepGoing = true;
+	printf("%d", &correct);
+
+	//getting user's name
+	printf("Hi! What is your name? ");
+	scanf("%s", userName);
+	printf("Let's play a game, %s! \n", userName);
 
 	while (keepGoing){
-		printf("Your guess: ");
+		turns++;
+		printf("Turn %d: Please enter a number. ", turns);
 		scanf("%d", &guess);
 
-		if (guess > correct){
-			printf("Too high.");
-		} else if (guess < correct){
-			printf("Too low.");
+		if (guess < correct){
+			printf("Too low... \n");
+		} else if (guess > correct){
+			printf("Too high... \n");
 		} else {
-			keepGoing = FALSE;
+			printf("You got it! \n");
+			if (turns > 7){
+				printf("Great job!");
+			} else if (turns < 7){
+				printf("Could be better...");
+			} else {
+				printf("Pretty good!");
+			}// end if
+			keepGoing = false;
 		}// end if
 	} // end while
-	printf("You win!");
 
 	return 0;
 } // end main
+
+// !gcc % to compile
+// ./a.out to run
