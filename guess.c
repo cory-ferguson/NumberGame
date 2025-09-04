@@ -33,9 +33,9 @@ int main() {
 			printf("Too high... \n");
 		} else {
 			printf("You got it! \n");
-			if (turns > 7){
+			if (turns < 7){
 				printf("Great job!");
-			} else if (turns < 7){
+			} else if (turns > 7){
 				printf("Could be better...");
 			} else {
 				printf("Pretty good!");
