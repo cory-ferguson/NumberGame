@@ -7,6 +7,8 @@
 #include <time.h>
 #include <stdbool.h>
 
+// This should be broken up into functions
+// initialize/create the functions before calling them.
 int main() {
 	//variables
 	char userName[20];
@@ -15,7 +17,6 @@ int main() {
 	srand(time(NULL)); //seeds the random number gen so it's actually random
 	int correct = (rand() % 100) + 1;
 	int keepGoing = true;
-	printf("%d", &correct);
 
 	//getting user's name
 	printf("Hi! What is your name? ");
@@ -47,5 +48,11 @@ int main() {
 	return 0;
 } // end main
 
-// !gcc % to compile
+// !gcc % to compile - do this after making changes!
 // ./a.out to run
+// gdb debugs (gdb a.out)
+//  gcc -g guess.c (includes the symbol table, 'guess.c' could be any program name)
+//  break main or break 5 (either line # or function name to add a breakpoint while in the debugger)
+//  next (goes to next line)
+//  step (to go into the function)
+//  watch i ('i' can be any variable, the watch command will tell you it's last and current value every time you go next)
